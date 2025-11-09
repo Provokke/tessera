@@ -1,0 +1,8 @@
+/target
+/.venv
+__pycache__/
+*.so
+/fuzz/target
+/fuzz/corpus
+/fuzz/artifacts
+/bench_data
