@@ -1,0 +1,36 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/tessera-arrow",
+    "crates/tessera-compute",
+    "crates/tessera-core",
+    "crates/tessera-io",
+    "crates/tessera-lazy",
+    "crates/tessera-py",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.82"
+license = "MIT OR Apache-2.0"
+repository = "https://example.invalid/tessera"
+
+[workspace.dependencies]
+tessera-arrow = { path = "crates/tessera-arrow", version = "0.1.0" }
+tessera-compute = { path = "crates/tessera-compute", version = "0.1.0" }
+memchr = "2.7.4"
+rayon = "1.10.0"
+hashbrown = "0.15.2"
+tessera-core = { path = "crates/tessera-core", version = "0.1.0" }
+tessera-lazy = { path = "crates/tessera-lazy", version = "0.1.0" }
+thiserror = "2.0.12"
+criterion = { version = "0.5.1", default-features = false, features = ["cargo_bench_support"] }
+proptest = "1.6.0"
+
+[profile.release]
+debug = 1
+codegen-units = 4
+
+[profile.bench]
+debug = 1
