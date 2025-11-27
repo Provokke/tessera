@@ -1,0 +1,13 @@
+[package]
+name = "tessera-arrow"
+description = "Arrow-spec columnar memory layout: aligned buffers, validity bitmaps, primitive and Utf8 arrays"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
