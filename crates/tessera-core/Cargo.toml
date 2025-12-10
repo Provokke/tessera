@@ -1,0 +1,17 @@
+[package]
+name = "tessera-core"
+description = "Series and DataFrame built on tessera-arrow"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+tessera-arrow.workspace = true
+tessera-compute.workspace = true
+thiserror.workspace = true
+rayon.workspace = true
+hashbrown.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
