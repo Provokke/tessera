@@ -1,0 +1,27 @@
+[package]
+name = "tessera-io"
+description = "CSV reader with schema inference, and CSV writer"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+tessera-arrow.workspace = true
+tessera-core.workspace = true
+thiserror.workspace = true
+memchr.workspace = true
+rayon.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+
+criterion.workspace = true
+
+[[bench]]
+name = "ops"
+harness = false
+
+[[bench]]
+name = "csv"
+harness = false
