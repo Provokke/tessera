@@ -1,0 +1,16 @@
+[package]
+name = "tessera-lazy"
+description = "Minimal expression DSL, logical plan, optimizer and executor"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+tessera-arrow.workspace = true
+tessera-core.workspace = true
+tessera-compute.workspace = true
+tessera-io = { path = "../tessera-io", version = "0.1.0" }
+
+[dev-dependencies]
+proptest.workspace = true
