@@ -1,0 +1,21 @@
+[package]
+name = "tessera-py"
+description = "Python bindings for tessera (pyo3)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+name = "tessera"
+crate-type = ["cdylib"]
+test = false
+doctest = false
+
+[dependencies]
+tessera-arrow.workspace = true
+tessera-core.workspace = true
+tessera-lazy.workspace = true
+tessera-io = { path = "../tessera-io", version = "0.1.0" }
+pyo3 = { version = "0.22.6", features = ["extension-module"] }
