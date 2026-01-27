@@ -39,4 +39,3 @@ pub use buffer::{Buffer, MutableBuffer, NativeType, ALIGNMENT};
 pub use builder::{BooleanBuilder, PrimitiveBuilder, Utf8Builder};
 pub use datatype::{DataType, Scalar};
 pub use error::{ArrowError, Result};
-
