@@ -1,0 +1,32 @@
+[package]
+name = "tessera-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+tessera-io = { path = "../crates/tessera-io" }
+tessera-lazy = { path = "../crates/tessera-lazy" }
+tessera-core = { path = "../crates/tessera-core" }
+tessera-arrow = { path = "../crates/tessera-arrow" }
+
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "csv_parse"
+path = "fuzz_targets/csv_parse.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "expr_eval"
+path = "fuzz_targets/expr_eval.rs"
+test = false
+doc = false
+bench = false
