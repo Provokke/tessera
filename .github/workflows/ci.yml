@@ -1,0 +1,26 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - run: cargo test --workspace --locked
+      - run: RUSTDOCFLAGS="-D warnings" cargo doc --no-deps --workspace
+  miri:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install nightly --component miri && cargo +nightly miri test -p tessera-arrow
+  fuzz-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install nightly && cargo install cargo-fuzz
+      - run: cd fuzz && cargo +nightly fuzz run csv_parse -- -max_total_time=30
+      - run: cd fuzz && cargo +nightly fuzz run expr_eval -- -max_total_time=30
