@@ -385,4 +385,3 @@ mod tests {
         assert_eq!(a.slice(1, 2).unwrap().len(), 2);
     }
 }
-
